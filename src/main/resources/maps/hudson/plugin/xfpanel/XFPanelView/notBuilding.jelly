@@ -91,11 +91,15 @@
 				</div>
 			</j:if>
 		</j:if>
-
+        
 		<j:if test="${it.ShowClaimInfoInUnstable == true}">
 			<div style="color: ${job.color}; font-size: ${claimFont}; overflow: hidden;">
 				${job.getClaimInfoByTestCases()}
 			</div>
 		</j:if>
+        
+		<div style="width 80%;">
+            ${job.getLastBuild().getFullDisplayName()}
+		</div>
 	</j:if>
 </j:jelly>
