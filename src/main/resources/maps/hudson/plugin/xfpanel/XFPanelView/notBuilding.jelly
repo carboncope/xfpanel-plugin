@@ -58,6 +58,12 @@
 			</j:if>
 			</div>
 		</j:if>
+        
+		<j:if test="${it.showFullBuildName == true}">
+			<div>
+                ${job.getLastBuild().getFullDisplayName()}
+			</div>
+		</j:if>
 	</j:if>
 
 	<!-- successful or unstable build  -->
@@ -98,8 +104,12 @@
 			</div>
 		</j:if>
         
-		<div style="width 80%;">
-            ${job.getLastBuild().getFullDisplayName()}
-		</div>
+		<j:if test="${job.queued != true}">
+			<j:if test="${it.showFullBuildName == true}">
+				<div style="width 80%; "  >
+                    ${job.getLastBuild().getFullDisplayName()}
+				</div>
+			</j:if>
+		</j:if>
 	</j:if>
 </j:jelly>

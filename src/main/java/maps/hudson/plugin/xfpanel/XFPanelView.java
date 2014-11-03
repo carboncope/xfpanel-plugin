@@ -50,6 +50,7 @@ public class XFPanelView extends ListView {
     private Boolean showZeroTestCounts = true;
     private Boolean sortDescending = false;
     private Boolean showTimeStamp = true;
+    private Boolean showFullBuildName = true;
     private Boolean enableAutomaticSort = true;
     private Boolean manualSort = false;
     private Boolean showClaimInfo = true;
@@ -127,12 +128,18 @@ public class XFPanelView extends ListView {
             if ( showTimeStamp ){
                 entryHeight += guiInfoFont + guiInfoFont/2;
             }
-
+            if ( showFullBuildName ){
+                entryHeight += guiInfoFont + guiInfoFont/2;
+            }
+            
             entryHeight = Math.max( entryHeight, guiFailFont );
             entryHeight = Math.max( entryHeight, guiJobFont );
 
-            if ( showZeroTestCounts && showTimeStamp ){
+            if ( showZeroTestCounts && showTimeStamp && !showFullBuildName){
                 entryHeight = Math.max( entryHeight, guiJobFont + guiInfoFont*3 );
+            }
+            else if ( showZeroTestCounts && showTimeStamp && showFullBuildName ){
+                entryHeight = Math.max( entryHeight, guiJobFont + guiInfoFont*4 );
             }
             Integer padding = 15; 
             return entryHeight + padding;
@@ -181,6 +188,10 @@ public class XFPanelView extends ListView {
         return this.showTimeStamp;
     }
 
+    public Boolean getShowFullBuildName() {
+        return this.showFullBuildName;
+    }
+    
     public Boolean getShowClaimInfo() {
         return this.showClaimInfo;
     }
@@ -415,6 +426,7 @@ public class XFPanelView extends ListView {
         this.showDescription = Boolean.parseBoolean(req.getParameter("showDescription"));
         this.sortDescending = Boolean.parseBoolean(req.getParameter("sortDescending"));
         this.showTimeStamp = Boolean.parseBoolean(req.getParameter("showTimeStamp"));
+        this.showFullBuildName = Boolean.parseBoolean(req.getParameter("showFullBuildName"));
         this.showZeroTestCounts = Boolean.parseBoolean(req.getParameter("showZeroTestCounts"));
         this.showWarningIcon = Boolean.parseBoolean(req.getParameter("showWarningIcon"));
         this.maxAmmountOfResponsibles = asInteger(req,"maxAmmountOfResponsibles");

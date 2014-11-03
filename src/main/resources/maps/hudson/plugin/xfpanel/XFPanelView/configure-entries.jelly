@@ -91,6 +91,9 @@
 	<f:entry title="${%Show time from the last build}" field="showTimeStamp">
 		<f:checkbox id="xfpanel.showTimeStamp" name="showTimeStamp" checked="${it.showTimeStamp}" value="true"/>
 	</f:entry>
+	<f:entry title="${%Show the full build name from the last build}" field="showFullBuildName">
+		<f:checkbox id="xfpanel.showFullBuildName" name="showFullBuildName" checked="${it.showFullBuildName}" value="true"/>
+	</f:entry>
 	<f:entry title="${%Show warning icon}" field="showWarningIcon">
 		<f:checkbox id="xfpanel.showWarningIcon" name="showWarningIcon" checked="${it.showWarningIcon}" value="true"/>
 	</f:entry>
