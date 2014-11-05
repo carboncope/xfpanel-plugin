@@ -126,21 +126,15 @@ public class XFPanelView extends ListView {
                 entryHeight += guiInfoFont;
             }
             if ( showTimeStamp ){
-                entryHeight += guiInfoFont + guiInfoFont/2;
+                entryHeight += guiInfoFont;
             }
             if ( showFullBuildName ){
-                entryHeight += guiInfoFont + guiInfoFont/2;
+                entryHeight += guiInfoFont;
             }
             
             entryHeight = Math.max( entryHeight, guiFailFont );
             entryHeight = Math.max( entryHeight, guiJobFont );
 
-            if ( showZeroTestCounts && showTimeStamp && !showFullBuildName){
-                entryHeight = Math.max( entryHeight, guiJobFont + guiInfoFont*3 );
-            }
-            else if ( showZeroTestCounts && showTimeStamp && showFullBuildName ){
-                entryHeight = Math.max( entryHeight, guiJobFont + guiInfoFont*4 );
-            }
             Integer padding = 15; 
             return entryHeight + padding;
         }
